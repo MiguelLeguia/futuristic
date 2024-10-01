@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Política de Privacidad</title>
+    <link href="../CSS/CSS Politica de Privacidad.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+
+<div id="modal-privacidad" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <div class="contenido">
+            <h1>Política de Privacidad</h1>
+            <p>En Futuristic Instruments, nos comprometemos a proteger su privacidad y garantizar que su información personal esté segura. Esta Política de Privacidad describe cómo recopilamos, utilizamos y protegemos la información que usted nos proporciona.</p>
+            <h2>1. Información que recopilamos</h2>
+            <p>Recopilamos información personal cuando usted realiza una compra en nuestro sitio web, se registra en nuestra tienda en línea o interactúa con nosotros de cualquier otra forma. Esta información puede incluir su nombre, dirección, correo electrónico y detalles de pago.</p>
+            <h2>2. Uso de la información</h2>
+            <p>La información que recopilamos se utiliza para procesar sus pedidos, mejorar nuestros productos y servicios, y comunicarnos con usted en relación con nuestras ofertas y promociones.</p>
+            <h2>3. Protección de la información</h2>
+            <p>Utilizamos medidas de seguridad avanzadas para proteger su información personal de accesos no autorizados, alteraciones, divulgaciones o destrucciones. Sin embargo, ningún método de transmisión de datos a través de Internet es 100% seguro.</p>
+            <h2>4. Compartir información</h2>
+            <p>No compartimos su información personal con terceros, excepto en los casos en que sea necesario para completar su pedido (por ejemplo, con proveedores de servicios de envío) o cuando estemos obligados a hacerlo por ley.</p>
+            <h2>5. Sus derechos</h2>
+            <p>Usted tiene derecho a acceder, corregir o eliminar su información personal en cualquier momento. Si desea ejercer estos derechos, contáctenos a través de la información proporcionada en nuestro sitio web.</p>
+            <p><strong>Última actualización:</strong> Septiembre 2024</p>
+        </div>
+    </div>
+</div>
+
+<script>
+ 
+    var modal = document.getElementById("modal-privacidad");
+    var spanCerrar = document.getElementsByClassName("cerrar")[0];
+
+    
+    window.onload = function() {
+        modal.style.display = "block";
+    }
+
+   
+    spanCerrar.onclick = function() {
+        window.location.href = "index.html";
+    }
+
+   
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
+
+</body>
+</html>

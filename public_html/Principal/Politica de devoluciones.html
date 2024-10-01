@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Política de Devoluciones</title>
+    <link href="../CSS/CSS Polotica de Devoluciones.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="modal-devoluciones" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <div class="contenido">
+            <h1>Política de Devoluciones</h1>
+            <p>En nuestra tienda, nos comprometemos a ofrecer productos que cumplan con la descripción proporcionada en el sitio web. Sin embargo, entendemos que puede haber ocasiones en las que un producto recibido no sea exactamente como se esperaba. Por ello, ofrecemos la siguiente política de devoluciones:</p>
+
+            <h2>Devoluciones por Productos Distintos a la Descripción:</h2>
+            <p>Si el producto recibido es significativamente diferente de la descripción proporcionada en nuestra tienda, el comprador tiene derecho a solicitar una devolución.</p>
+            <p>El comprador puede optar por devolver el producto y deberá hacerse cargo de los gastos de envío de vuelta. Una vez recibido el producto devuelto, procederemos con el reembolso completo del valor del producto original.</p>
+            <p>Alternativamente, el comprador puede optar por quedarse con el producto y acordar con el vendedor una devolución parcial del dinero, que se ajustará al valor de la diferencia entre el producto recibido y la descripción inicial.</p>
+
+            <h2>Proceso de Devolución:</h2>
+            <p>Para iniciar una devolución, el comprador debe contactar a nuestro servicio de atención al cliente dentro de los [número de días, por ejemplo, 14] días posteriores a la recepción del producto.</p>
+            <p>Deberá proporcionar detalles del pedido y una descripción del problema. También puede ser necesario enviar fotos del producto y de su embalaje.</p>
+            <p>Recibida la solicitud, nuestro equipo proporcionará instrucciones sobre cómo proceder con la devolución.</p>
+
+            <h2>Condiciones del Producto:</h2>
+            <p>Los productos deben estar en su estado original, sin usar y en su embalaje original para ser elegibles para una devolución.</p>
+            <p>Los productos que muestren signos de uso, daño o alteraciones no serán aceptados para devolución.</p>
+
+            <h2>Gastos de Envío:</h2>
+            <p>Los gastos de envío para la devolución del producto corren por cuenta del comprador, a menos que se determine que el error es responsabilidad nuestra.</p>
+
+            <h2>Reembolsos:</h2>
+            <p>Los reembolsos se procesarán una vez que el producto devuelto sea recibido y revisado. El reembolso se realizará a través del método de pago original.</p>
+            <p>En el caso de una devolución parcial, el monto ajustado será reembolsado de acuerdo con el acuerdo alcanzado entre el comprador y el vendedor.</p>
+
+            <h2>Excepciones:</h2>
+            <p>Algunos productos pueden estar excluidos de la política de devoluciones, como productos personalizados o de higiene personal, salvo en casos de defectos o errores en el pedido.</p>
+            <p>Para cualquier consulta adicional sobre nuestra política de devoluciones, por favor, no dudes en ponerte en contacto con nuestro equipo de atención al cliente. Estamos aquí para ayudarte y asegurarnos de que tengas una experiencia de compra satisfactoria.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("modal-devoluciones");
+    var spanCerrar = document.getElementsByClassName("cerrar")[0];
+
+    window.onload = function() {
+        modal.style.display = "block";
+    }
+
+    spanCerrar.onclick = function() {
+        window.location.href = "index.html";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
+
+</body>
+</html>

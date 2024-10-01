@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Términos y Condiciones</title>
+    <link href="../CSS/CSS TERMINOS Y CONDICIONES.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="modal-terminos" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <div class="contenido">
+            <h1>Términos y Condiciones</h1>
+            <p>Bienvenido a Futuristic Instruments. Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de nuestra compañía.</p>
+            <h2>1. Aceptación de los términos</h2>
+            <p>Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones. Si no estás de acuerdo con los términos descritos, no continúes usando nuestro sitio.</p>
+            <h2>2. Cookies</h2>
+            <p>Utilizamos cookies para mejorar la experiencia de nuestros usuarios. Al usar el sitio, aceptas el uso de cookies de acuerdo con nuestra Política de Privacidad.</p>
+            <h2>3. Licencia</h2>
+            <p>A menos que se indique lo contrario, Futuristic Instruments posee los derechos de propiedad intelectual de todo el contenido en este sitio web. Todos los derechos están reservados. Puedes acceder a este contenido para uso personal sujeto a las restricciones establecidas en estos términos.</p>
+            <h2>4. Uso del sitio</h2>
+            <p>No debes: reproducir, duplicar o copiar contenido sin permiso; vender, alquilar o sublicenciar material de este sitio web; redistribuir contenido a menos que esté expresamente permitido.</p>
+            <h2>5. Enlaces externos</h2>
+            <p>El sitio puede incluir enlaces a otros sitios web. No somos responsables del contenido o de las políticas de privacidad de estos sitios externos.</p>
+            <h2>6. Limitación de responsabilidad</h2>
+            <p>Futuristic Instruments no será responsable por ningún daño indirecto o directo que resulte del uso de este sitio web.</p>
+            <p><strong>Última actualización:</strong> Septiembre 2024</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    var modal = document.getElementById("modal-terminos");
+    var spanCerrar = document.getElementsByClassName("cerrar")[0];
+
+   
+    window.onload = function() {
+        modal.style.display = "block";
+    }
+
+    
+   spanCerrar.onclick = function() {
+        window.location.href = "index.html";
+    }
+
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; 
+        }
+    }
+</script>
+
+</body>
+</html>

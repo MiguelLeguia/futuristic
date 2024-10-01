@@ -1,0 +1,16 @@
+{
+    "name": "Proyecto_Grupal",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "HP",
+    "contributors": [],
+    "dependencies": {
+        "@emailjs/browser": "^4.4.1"
+    }
+}

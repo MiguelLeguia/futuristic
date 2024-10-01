@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Iniciar Sesión - Futuristic Instruments</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="../CSS/CSS Inicio Sesion.css" rel="stylesheet" type="text/css"/>
+
+   
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const eyeIcon = document.getElementById("eye-icon");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.src = "../img/ver contraseña.png"; 
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.src = "../img/no ver contraseña.png"; 
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form action="" method="POST">
+            <input type="text" name="email" placeholder="Correo Electrónico" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                <img id="eye-icon" class="eye-icon" src="../img/no ver contraseña.png" alt="Toggle Password" onclick="togglePassword()"/>
+            </div>
+            
+            <div class="g-recaptcha" data-sitekey="6LdisksqAAAAAHIk6xCHwCmMnFOwnP6xVfWAV7J2" data-action="LOGIN"></div>
+            <br/>
+
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+
+        <a href="index.html" class="back-link">Volver a la Página Principal</a>
+        <a href="Registro.html" class="underline-button">¿Aún no tienes cuenta? <span>Regístrate</span></a>
+    </div>
+</body>
+</html>

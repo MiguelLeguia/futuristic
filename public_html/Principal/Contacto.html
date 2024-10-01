@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contacto</title>
+    <link href="../CSS/CSS Contacto.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="modal-contacto" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <div class="contenido">
+            <h1>Contáctanos</h1>
+            <p>Para consultas, contáctate con nuestro equipo en el siguiente horario:</p>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
+                    <th>Teléfono</th>
+                </tr>
+                <tr>
+                    <td>Miguel Angel Leguía Nizama</td>
+                    <td>Jefe de Soporte Técnico</td>
+                    <td><a href="https://wa.me/51940620265?text=Hola%20Miguel,%20me%20gustaría%20más%20información%20sobre%20los%20servicios%20de%20soporte%20técnico%20que%20ofrecen.%20Tengo%20algunas%20dudas%20y%20me%20gustaría%20saber%20cómo%20pueden%20ayudarme." target="_blank">940 620 265</a></td>
+                </tr>
+                <tr>
+                    <td>Dario Calef Zambrano Leaño</td>
+                    <td>Gerente de Ventas/Secretario</td>
+                    <td><a href="https://wa.me/51926206841?text=Hola%20Dario,%20tengo%20una%20consulta%20sobre%20ventas.%20Me%20gustaría%20saber%20más%20detalles%20sobre%20los%20productos%20disponibles%20y%20las%20ofertas%20actuales." target="_blank">926 206 841</a></td>
+                </tr>
+                <tr>
+                    <td>Alberto Alcibiades Chapcha Meneses</td>
+                    <td>Asesor de Instrumentos Musicales</td>
+                    <td><a href="https://wa.me/51993894603?text=Hola%20Alberto,%20quisiera%20asesoramiento%20sobre%20instrumentos%20musicales.%20Estoy%20interesado%20en%20conocer%20las%20opciones%20que%20tienen%20y%20cualquier%20recomendación%20que%20puedas%20darme." target="_blank">993 894 603</a></td>
+                </tr>
+                <tr>
+                    <td>Leonardo Bruno Flores Barboza</td>
+                    <td>Encargado de Logística/Atención al Cliente</td>
+                    <td><a href="https://wa.me/51960489524?text=Hola%20Leonardo,%20necesito%20ayuda%20con%20un%20pedido%20que%20realicé.%20Me%20gustaría%20saber%20el%20estado%20del%20mismo%20y%20si%20hay%20algo%20más%20que%20deba%20hacer." target="_blank">960 489 524</a></td>
+                </tr>
+                <tr>
+                    <td>Loren’s Isabel León Muñoz</td>
+                    <td>Especialista en Audio Profesional/Gerente General</td>
+                    <td><a href="https://wa.me/51915067372?text=Hola%20Loren,%20tengo%20una%20consulta%20sobre%20equipos%20de%20audio.%20Estoy%20interesado%20en%20adquirir%20algunos%20equipos%20y%20necesito%20tu%20ayuda%20para%20elegir%20los%20mejores%20para%20mis%20necesidades." target="_blank">915 067 372</a></td>
+                </tr>
+                <tr>
+                    <td>Jeferson Orlando Laveriano Livias</td>
+                    <td>Consultor de Equipos de Grabación</td>
+                    <td><a href="https://wa.me/51963715878?text=Hola%20Jeferson,%20necesito%20información%20sobre%20equipos%20de%20grabación.%20Me%20gustaría%20conocer%20las%20mejores%20opciones%20que%20tienen%20y%20si%20tienes%20algun%20consejo%20para%20empezar." target="_blank">963 715 878</a></td>
+                </tr>
+            </table>
+            <p><strong>Horario de Atención:</strong> Lunes a Viernes de 9:00 a.m. a 6:00 p.m.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modalContacto = document.getElementById("modal-contacto");
+    var spanCerrar = document.getElementsByClassName("cerrar")[0];
+
+    window.onload = function() {
+        modalContacto.style.display = "block";
+    }
+
+    spanCerrar.onclick = function() {
+        window.location.href = "index.html";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modalContacto) {
+            modalContacto.style.display = "none";
+            document.body.style.overflow = "auto"; 
+        }
+    }
+</script>
+
+</body>
+</html>

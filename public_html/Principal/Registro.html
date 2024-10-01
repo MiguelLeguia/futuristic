@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Registro - Futuristic Instruments</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="../CSS/CSS Registro.css" rel="stylesheet" type="text/css"/>
+    <head>
+</head>
+<body>
+    <div class="register-container">
+        <div class="page-heading">Registro</div>
+        <form id="registerForm">
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" placeholder="Ingresa tus apellidos" required>
+
+            <label for="documento">Tipo de documento</label>
+            <select id="documento" name="documento" required>
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Carnet de extranjería">Carnet de extranjería</option>
+            </select>
+
+            <label for="numeroDocumento">Nº de documento</label>
+            <input type="text" id="numeroDocumento" name="numeroDocumento" placeholder="Ingresa tu número de documento" required>
+
+            <label for="celular">Celular</label>
+            <input type="tel" id="celular" name="celular" placeholder="+51 Ingresa tu número de celular" required>
+
+            <label for="password">Contraseña</label>
+            <div style="position: relative;">
+                <input type="password" id="password" name="password" placeholder="Ingresa una contraseña" required>
+                <img src="../img/no ver contraseña.png" id="togglePassword" alt="Ver" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; width: 24px; height: 24px;">
+            </div>
+
+            <div class="password-requirements">
+                <ul>
+                    <li id="length" class="invalid">Mín. 8 caracteres</li>
+                    <li id="number" class="invalid">1 número</li>
+                    <li id="lowercase" class="invalid">1 minúscula</li>
+                    <li id="uppercase" class="invalid">1 mayúscula</li>
+                    <li id="special" class="invalid">Sin usar caracteres especiales</li>
+                </ul>
+            </div>
+
+            <div class="cajas">
+                <div>
+                    <input type="checkbox" id="terminos1"> 
+                    <label for="terminos1">Aceptar términos y condiciones</label>
+                    <a href="#">Términos y condiciones</a> 
+                </div>
+                <div>
+                    <input type="checkbox" id="terminos2">
+                    <label for="terminos2">Aceptar política de privacidad</label>
+                    <a href="#">Política de privacidad</a> 
+                </div>
+            </div>
+
+            <button type="submit" id="registerButton" disabled>Registrarme</button>
+        </form>
+        <div class="back-link">¿Ya tienes cuenta? <span class="highlight-link" onclick="window.location.href='Inicio Sesion.html'">Inicia sesión</span></div>
+    </div>
+
+    <div class="notification" id="notification">
+        <button id="closeNotification">&times;</button>
+        Registro completo
+    </div>
+
+    <script>
+        const nombreInput = document.getElementById('nombre');
+        const apellidosInput = document.getElementById('apellidos');
+        const numeroDocumentoInput = document.getElementById('numeroDocumento');
+        const celularInput = document.getElementById('celular');
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+        const lengthCriteria = document.getElementById('length');
+        const numberCriteria = document.getElementById('number');
+        const lowercaseCriteria = document.getElementById('lowercase');
+        const uppercaseCriteria = document.getElementById('uppercase');
+        const specialCriteria = document.getElementById('special');
+        const form = document.getElementById('registerForm');
+        const button = document.getElementById('registerButton');
+        const terms1 = document.getElementById('terminos1');
+        const terms2 = document.getElementById('terminos2');
+        const notification = document.getElementById('notification');
+        const closeNotification = document.getElementById('closeNotification');
+
+        function restrictInput(e, pattern) {
+            const input = e.target;
+            const value = input.value;
+            input.value = value.replace(new RegExp(`[^${pattern}]`, 'g'), '');
+        }
+
+        // Permitir letras y espacios, pero no números en nombre y apellidos
+        nombreInput.addEventListener('input', (e) => restrictInput(e, 'a-zA-Z '));
+        apellidosInput.addEventListener('input', (e) => restrictInput(e, 'a-zA-Z '));
+
+        // Restringir números en campos de documento y celular
+        numeroDocumentoInput.addEventListener('input', (e) => restrictInput(e, '0-9'));
+        celularInput.addEventListener('input', (e) => restrictInput(e, '0-9'));
+
+        passwordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            const meetsLength = password.length >= 8;
+            const hasNumber = /\d/.test(password);
+            const hasLowercase = /[a-z]/.test(password);
+            const hasUppercase = /[A-Z]/.test(password);
+            const hasSpecialChar = /[^\w\s]/.test(password);
+
+            lengthCriteria.classList.toggle('valid', meetsLength);
+            lengthCriteria.classList.toggle('invalid', !meetsLength);
+            numberCriteria.classList.toggle('valid', hasNumber);
+            numberCriteria.classList.toggle('invalid', !hasNumber);
+            lowercaseCriteria.classList.toggle('valid', hasLowercase);
+            lowercaseCriteria.classList.toggle('invalid', !hasLowercase);
+            uppercaseCriteria.classList.toggle('valid', hasUppercase);
+            uppercaseCriteria.classList.toggle('invalid', !hasUppercase);
+            specialCriteria.classList.toggle('valid', !hasSpecialChar);
+            specialCriteria.classList.toggle('invalid', hasSpecialChar);
+
+            button.disabled = !(meetsLength && hasNumber && hasLowercase && hasUppercase && !hasSpecialChar && terms1.checked && terms2.checked);
+        });
+
+        terms1.addEventListener('change', () => {
+            button.disabled = !(passwordInput.value.length >= 8 && /\d/.test(passwordInput.value) && /[a-z]/.test(passwordInput.value) && /[A-Z]/.test(passwordInput.value) && !/[^\w\s]/.test(passwordInput.value) && terms1.checked && terms2.checked);
+        });
+
+        terms2.addEventListener('change', () => {
+            button.disabled = !(passwordInput.value.length >= 8 && /\d/.test(passwordInput.value) && /[a-z]/.test(passwordInput.value) && /[A-Z]/.test(passwordInput.value) && !/[^\w\s]/.test(passwordInput.value) && terms1.checked && terms2.checked);
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            notification.style.display = 'block';
+            form.reset();
+        });
+
+        closeNotification.addEventListener('click', () => {
+            notification.style.display = 'none';
+        });
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.src = type === 'text' ? '../img/ver contraseña.png' : '../img/no ver contraseña.png';
+        });
+    </script>
+</body>
+</html>

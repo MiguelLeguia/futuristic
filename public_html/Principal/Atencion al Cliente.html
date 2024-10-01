@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Atención al Cliente</title>
+    <link href="../CSS/CSS Atencion al Cliente.css" rel="stylesheet" type="text/css"/>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "K5tYP-zxA3jlPBHwP", 
+            });
+        })();
+    </script>
+</head>
+<body>
+
+<div id="modal-atencion-cliente" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <div class="contenido">
+            <h1>Atención al Cliente</h1>
+            <p>Por favor, completa el siguiente formulario para que podamos asistirte mejor.</p>
+
+            <form id="form-atencion-cliente" enctype="multipart/form-data">
+                <div class="pregunta">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre completo" required pattern="[a-zA-Z\s]+" title="Solo se permiten letras">
+                </div>
+
+                <div class="pregunta">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
+                </div>
+
+                <div class="pregunta">
+                    <label>Motivo de la Consulta:</label>
+                    <input type="radio" name="motivo" value="Devoluciones" id="devoluciones" required>
+                    <label for="devoluciones">Devoluciones</label>
+                    <input type="radio" name="motivo" value="Retraso en el envío" id="retraso-envio">
+                    <label for="retraso-envio">Retraso en el envío</label>
+                    <input type="radio" name="motivo" value="Error en el pedido" id="error-pedido">
+                    <label for="error-pedido">Error en el pedido</label>
+                    <input type="radio" name="motivo" value="Otro" id="otro">
+                    <label for="otro">Otro</label>
+                </div>
+
+                <div class="pregunta">
+                    <label for="medio-contacto">¿Cómo prefieres ser contactado?:</label>
+                    <select id="medio-contacto" name="medio-contacto" required>
+                        <option value="">Selecciona un método</option>
+                        <option value="email">Correo Electrónico</option>
+                        <option value="telefono">Teléfono</option>
+                        <option value="chat">Chat en vivo</option>
+                    </select>
+                </div>
+
+                <div class="pregunta">
+                    <label>Califica la atención recibida en nuestro sitio web (1 a 10):</label>
+                    <div class="valoracion">
+                        <label>1</label>
+                        <input type="radio" name="calificacion" value="1" required>
+                        <input type="radio" name="calificacion" value="2">
+                        <input type="radio" name="calificacion" value="3">
+                        <input type="radio" name="calificacion" value="4">
+                        <input type="radio" name="calificacion" value="5">
+                        <input type="radio" name="calificacion" value="6">
+                        <input type="radio" name="calificacion" value="7">
+                        <input type="radio" name="calificacion" value="8">
+                        <input type="radio" name="calificacion" value="9">
+                        <input type="radio" name="calificacion" value="10">
+                        <label>10</label>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <label>¿Qué tan probable es que recomiendes nuestra tienda? (1 a 10):</label>
+                    <div class="valoracion">
+                        <label>1</label>
+                        <input type="radio" name="recomendacion" value="1" required>
+                        <input type="radio" name="recomendacion" value="2">
+                        <input type="radio" name="recomendacion" value="3">
+                        <input type="radio" name="recomendacion" value="4">
+                        <input type="radio" name="recomendacion" value="5">
+                        <input type="radio" name="recomendacion" value="6">
+                        <input type="radio" name="recomendacion" value="7">
+                        <input type="radio" name="recomendacion" value="8">
+                        <input type="radio" name="recomendacion" value="9">
+                        <input type="radio" name="recomendacion" value="10">
+                        <label>10</label>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <label for="pregunta-personalizada">Escribe aquí tu consulta:</label>
+                    <textarea id="pregunta-personalizada" name="consulta" placeholder="Introduce los detalles de tu consulta" required></textarea>
+                </div>
+
+                <div class="pregunta">
+                    <label for="documento">Subir Documento:</label>
+                    <input type="file" id="documento" name="documento" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar</button>
+                <p id="mensaje-enviado" class="mensaje-enviado" style="display: none;">¡Tu consulta ha sido enviada! Un asesor se pondrá en contacto contigo pronto.</p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("modal-atencion-cliente");
+    var spanCerrar = document.getElementsByClassName("cerrar")[0];
+    var form = document.getElementById("form-atencion-cliente");
+    var mensajeEnviado = document.getElementById("mensaje-enviado");
+
+    window.onload = function() {
+        modal.style.display = "block";
+    }
+
+    spanCerrar.onclick = function() {
+        window.location.href = "index.html";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    form.onsubmit = function(event) {
+        event.preventDefault();
+        
+        if (!form.checkValidity()) {
+            alert("Por favor, completa todos los campos correctamente.");
+        } else {
+            var formData = new FormData(form);
+
+            var formObject = {
+                nombre: formData.get("nombre"),
+                email: formData.get("email"),
+                motivo: formData.get("motivo"),
+                medio_contacto: formData.get("medio-contacto"),
+                calificacion: formData.get("calificacion"),
+                recomendacion: formData.get("recomendacion"),
+                consulta: formData.get("consulta"),
+                documento: formData.get("documento") 
+            };
+
+            emailjs.send("service_k3patxj", "template_9dzi74b", formObject)
+            .then(function() {
+                mensajeEnviado.style.display = "block";
+                form.reset();
+            }, function(error) {
+                alert("Error al enviar la consulta: " + JSON.stringify(error));
+            });
+        }
+    }
+</script>
+
+</body>
+</html>

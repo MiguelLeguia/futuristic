@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Sistema de audio de alta potencia V83D</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2b2b2b;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .producto {
+            display: flex;
+            justify-content: space-between;
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative; 
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .producto img {
+            max-width: 50%;
+            border-radius: 10px;
+        }
+
+        .producto-details {
+            max-width: 45%;
+        }
+
+        .producto-details h1 {
+            color: #ffbb33;
+            margin-bottom: 10px;
+        }
+
+        .producto-details h3 {
+            color: #ff8400;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .producto-details .price {
+            font-size: 28px;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .producto-details .price del {
+            color: #aaa;
+            font-size: 20px;
+        }
+
+        .btn-comprar {
+            display: inline-block;
+            background-color: #ff385c;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn-comprar:hover {
+            background-color: #ff6489;
+        }
+
+        .extra-info {
+            margin-top: 20px;
+        }
+
+        .extra-info p {
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        .extra-info .stock {
+            color: lightgreen;
+        }
+
+       
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #ffbb33;
+            font-size: 24px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .close-btn:hover {
+            text-shadow: 0 0 10px rgba(255, 187, 51, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="producto">
+          
+            <a href="../Principal/index.html" class="close-btn">x</a>
+            
+            <img src="../img/Sistema de Audio.jpeg" alt="Guitarra Eléctrica G&L">
+            <div class="producto-details">
+                <h1>Sistema de audio de alta potencia V83D con tecnología BLUETOOTH</h1>
+                <p>G&L</p>
+                <p class="price">S/. 2,999.01</p>
+               
+                <a href="#" class="btn-comprar">Agregar al carrito</a>
+                <div class="extra-info">
+                    <p>Pagos con tarjetas BCP Visa, Diners y BBVA.</p>
+                    <p class="stock">Stock en tienda: Quedan pocas unidades</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

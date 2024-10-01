@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Principal Futurista</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="../CSS/CSS index.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Futuristic Instruments</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" class="active" id="inicio-link">Inicio</a></li>
+                    <li><a href="javascript:void(0)" onclick="cargarProductos()" id="productos-link">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="iniciar-sesion">
+                <ul>
+                    <li><a href="Inicio Sesion.html">Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="contenido">
+        <div class="carrusel" id="carrusel">
+            <div class="imagenes">
+                <div class="imagen">
+                    <a href="../ProductsCarrusel/Guitarra.html">
+                        <img src="../img/Guitarra Electrica.jpeg" alt="Guitarra Futurista">
+                    </a>
+                </div>
+                <div class="imagen">
+                    <a href="../ProductsCarrusel/piano.html">
+                        <img src="../img/Piano Digital.jpeg" alt="Bajo Futurista">
+                    </a>
+                </div>              
+                <div class="imagen">
+                    <a href="../ProductsCarrusel/Sistema de audio.html">
+                        <img src="../img/Sistema de Audio.jpeg" alt="Sintetizador Futurista">
+                    </a>
+                </div>
+            </div>
+            <button class="flecha izquierda" onclick="moverCarrusel(-1)">&#9664;</button>
+            <button class="flecha derecha" onclick="moverCarrusel(1)">&#9654;</button>
+        </div>
+    </div>
+   
+    <script>
+        let indiceActual = 0;
+        const imagenes = document.querySelectorAll('.carrusel .imagen');
+
+        function moverCarrusel(direccion) {
+            indiceActual += direccion;
+
+            if (indiceActual < 0) {
+                indiceActual = imagenes.length - 1;
+            }
+
+            if (indiceActual >= imagenes.length) {
+                indiceActual = 0;
+            }
+
+            const desplazamiento = -indiceActual * 100;
+            document.querySelector('.carrusel .imagenes').style.transform = `translateX(${desplazamiento}%)`;
+        }
+
+        
+        function cargarProductos() {
+            document.getElementById("contenido").innerHTML = '<iframe src="productos.html"></iframe>';
+            
+            
+            document.getElementById("inicio-link").classList.remove("active");
+            document.getElementById("productos-link").classList.add("active");
+        }
+    </script>
+    <footer>
+        <div class="footer-info">
+            <p>&copy; 2024 Futuristic Instruments. Todos los derechos reservados.</p>
+            <ul>
+                
+                <li><a href="Politica de privacidad.html">Política de Privacidad</a></li>
+                <li><a href="Terminos y Condiciones.html">Términos de Uso</a></li>
+                <li><a href="Politica de devoluciones.html">Politica de Devoluciones</a></li>
+                <li><a href="Atencion al Cliente.html">Atencion al Cliente</a></li>
+            </ul>
+        </div>
+        <div class="redes-sociales">
+         
+            <a href="https://www.facebook.com/share/zR8zTHed2aDrMUPd/?mibextid=qi2Omg"><img src="../img/facebook.jpeg" alt="Facebook"></a>
+            <a href="https://x.com/Futuristic28818?t=6EHneFossxEwBJ3E8xnhUA&s=09"><img src="../img/x.jpeg" alt="Twitter"></a>
+            <a href="#"><img src="../img/Instagram.jpeg" alt="Instagram"></a>
+        </div>
+    </footer>
+</body>
+</html>
